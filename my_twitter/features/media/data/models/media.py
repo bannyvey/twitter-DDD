@@ -3,12 +3,12 @@ from typing import TYPE_CHECKING
 from sqlalchemy import String, ForeignKey, Integer
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from core.models.postgres.models import Base
-from features.media.domain.entities.media_entity import MediaEntity
+from my_twitter.core.models.postgres.models import Base
+
 
 if TYPE_CHECKING:
-    from features.tweet.data.models.tweet import Tweet
-
+    from my_twitter.features.tweet import Tweet
+    from my_twitter.features.media import MediaEntity
 
 class Media(Base):
     """
@@ -16,12 +16,11 @@ class Media(Base):
     При удалении твита медиа удаляются каскадно.
     """
     __tablename__ = "table_media"
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
     path: Mapped[str] = mapped_column(String(255))
     tweet_id: Mapped[int | None] = mapped_column(ForeignKey("table_tweet.id", ondelete="CASCADE"), nullable=True)
     tweet: Mapped['Tweet'] = relationship("Tweet", back_populates='medias')
 
-    async def to_entity(self) -> MediaEntity:
+    async def to_entity(self) -> "MediaEntity":
         return MediaEntity(
             id_=self.id,
             path=self.path,
@@ -29,7 +28,7 @@ class Media(Base):
         )
 
     @staticmethod
-    async def from_entity(media: MediaEntity) -> 'Media':
+    async def from_entity(media: "MediaEntity") -> 'Media':
         return Media(
             id=media.id_,
             path=media.path,

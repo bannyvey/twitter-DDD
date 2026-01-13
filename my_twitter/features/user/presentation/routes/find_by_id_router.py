@@ -1,9 +1,9 @@
-from fastapi import Depends
+from fastapi import Depends, APIRouter
 
-from features.user.dependencies import get_find_user_by_id_use_case
-from features.user.domain.use_cases.find_by_id_user import FindByIdUserUseCase
-from features.user.presentation.routes import router
+from my_twitter.features.user.dependencies import get_find_user_by_id_use_case
+from my_twitter.features.user.domain.use_cases.find_by_id_user import FindByIdUserUseCase
 
+router = APIRouter()
 
 @router.get("/{id}")
 async def find_by_id_router(

@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from features.media.domain.repositories.media_repository import MediaRepository
-from features.media.domain.repositories.media_unit_of_work import MediaUnitOfWork
+from my_twitter.features.media.domain.repositories.media_repository import MediaRepository
+from my_twitter.features.media.domain.repositories.media_unit_of_work import MediaUnitOfWork
 
 
 class MediaUnitOfWorkImpl(MediaUnitOfWork):

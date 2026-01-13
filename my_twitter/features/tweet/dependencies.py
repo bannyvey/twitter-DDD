@@ -1,22 +1,19 @@
-from fastapi import Depends, Header
-from sqlalchemy import select
+from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.orm import selectinload
 
-from core.database.postgres.database import get_db
-from core.error.base_exception import AuthException
-from features.media.dependencies import get_media_repository
-from features.media.domain.repositories.media_repository import MediaRepository
-from features.tweet.data.repositories.tweet_repository_impl import TweetRepositoryImpl
-from features.tweet.data.repositories.tweet_unit_of_work_impl import TweetUnitOfWorkImpl
-from features.tweet.data.services.tweet_query_service_impl import TweetQueryServiceImpl
-from features.tweet.domain.repositories.tweet_repository import TweetRepository
-from features.tweet.domain.repositories.tweet_unit_of_work import TweetUnitOfWork
-from features.tweet.domain.services.tweet_query_service import TweetQueryService
-from features.tweet.domain.use_cases.create_tweet import CreateTweetUseCase, CreateTweetUseCaseImpl
-from features.tweet.domain.use_cases.delete_tweet import DeleteTweetUseCase, DeleteTweetUseCaseImpl
-from features.tweet.domain.use_cases.get_tweets import GetTweetsUseCase, GetTweetsUseCaseImpl
-from features.user.data.models.user import User
+
+from my_twitter.core.database.postgres.database import get_db
+from my_twitter.features.media.dependencies import get_media_repository
+from my_twitter.features.media.domain.repositories.media_repository import MediaRepository
+from my_twitter.features.tweet.data.repositories.tweet_repository_impl import TweetRepositoryImpl
+from my_twitter.features.tweet.data.repositories.tweet_unit_of_work_impl import TweetUnitOfWorkImpl
+from my_twitter.features.tweet.data.services.tweet_query_service_impl import TweetQueryServiceImpl
+from my_twitter.features.tweet.domain.repositories.tweet_repository import TweetRepository
+from my_twitter.features.tweet.domain.repositories.tweet_unit_of_work import TweetUnitOfWork
+from my_twitter.features.tweet.domain.services.tweet_query_service import TweetQueryService
+from my_twitter.features.tweet.domain.use_cases.create_tweet import CreateTweetUseCase, CreateTweetUseCaseImpl
+from my_twitter.features.tweet.domain.use_cases.delete_tweet import DeleteTweetUseCase, DeleteTweetUseCaseImpl
+from my_twitter.features.tweet.domain.use_cases.get_tweets import GetTweetsUseCase, GetTweetsUseCaseImpl
 
 
 def get_tweet_repository(

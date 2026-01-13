@@ -2,10 +2,10 @@ from sqlalchemy import select, Sequence
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from features.like.data.models.like import Like
-from features.tweet.data.models.tweet import Tweet
-from features.tweet.domain.entities.tweet_query_model import TweetReadModel
-from features.tweet.domain.services.tweet_query_service import TweetQueryService
+from my_twitter.features.like import Like
+from my_twitter.features.tweet import Tweet
+from my_twitter.features.tweet.domain.entities.tweet_query_model import TweetReadModel
+from my_twitter.features.tweet.domain.services.tweet_query_service import TweetQueryService
 
 
 class TweetQueryServiceImpl(TweetQueryService):

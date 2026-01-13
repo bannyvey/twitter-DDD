@@ -3,9 +3,8 @@ from typing import Sequence
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from features.media.data.models.media import Media
-from features.media.domain.entities.media_entity import MediaEntity
-from features.media.domain.repositories.media_repository import MediaRepository
+from my_twitter.features.media import Media, MediaEntity
+from my_twitter.features.media.domain.repositories.media_repository import MediaRepository
 
 
 class MediaRepositoryImpl(MediaRepository):

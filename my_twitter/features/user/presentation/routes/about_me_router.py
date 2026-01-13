@@ -1,11 +1,11 @@
-from fastapi import Depends
+from fastapi import Depends, APIRouter
 
-from dependencies import get_current_user
-from features.user.dependencies import get_tweet_me_use_case
-from features.user.domain.entities.user_entity import UserEntity
-from features.user.domain.use_cases.get_me_user import UserGetMeUseCase
-from features.user.presentation.routes import router
+from my_twitter.dependencies import get_current_user
+from my_twitter.features.user.dependencies import get_tweet_me_use_case
+from my_twitter.features.user.domain.entities.user_entity import UserEntity
+from my_twitter.features.user.domain.use_cases.get_me_user import UserGetMeUseCase
 
+router = APIRouter()
 
 @router.get('/me')
 async def about_me_router(

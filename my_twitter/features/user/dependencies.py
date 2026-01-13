@@ -1,17 +1,17 @@
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from core.database.postgres.database import get_db
-from features.user.data.repositories.user_repository_impl import UserRepositoryImpl
-from features.user.data.repositories.user_unit_of_work_impl import UserUnitOfWorkImpl
-from features.user.data.services.user_query_service_impl import UserQueryServiceImpl
-from features.user.domain.repositories.user_repository import UserRepository
-from features.user.domain.repositories.user_unit_of_work import UserUnitOfWork
-from features.user.domain.services.user_query_service import UserQueryService
-from features.user.domain.use_cases.create_follower import CreateFollowerUseCase, CreateFollowerUseCaseImpl
-from features.user.domain.use_cases.delete_follower import DeleteFollowingUseCaseImpl, DeleteFollowingUseCase
-from features.user.domain.use_cases.find_by_id_user import FindByIdUserUseCase, FindByIdUserUseCaseImpl
-from features.user.domain.use_cases.get_me_user import UserGetMeUseCase, UserGetMeUseCaseImpl
+from my_twitter.core.database.postgres.database import get_db
+from my_twitter.features.user.data.repositories.user_repository_impl import UserRepositoryImpl
+from my_twitter.features.user.data.repositories.user_unit_of_work_impl import UserUnitOfWorkImpl
+from my_twitter.features.user.data.services.user_query_service_impl import UserQueryServiceImpl
+from my_twitter.features.user.domain.repositories.user_repository import UserRepository
+from my_twitter.features.user.domain.repositories.user_unit_of_work import UserUnitOfWork
+from my_twitter.features.user.domain.services.user_query_service import UserQueryService
+from my_twitter.features.user.domain.use_cases.create_follower import CreateFollowerUseCase, CreateFollowerUseCaseImpl
+from my_twitter.features.user.domain.use_cases.delete_follower import DeleteFollowingUseCaseImpl, DeleteFollowingUseCase
+from my_twitter.features.user.domain.use_cases.find_by_id_user import FindByIdUserUseCase, FindByIdUserUseCaseImpl
+from my_twitter.features.user.domain.use_cases.get_me_user import UserGetMeUseCase, UserGetMeUseCaseImpl
 
 
 def get_user_repository(

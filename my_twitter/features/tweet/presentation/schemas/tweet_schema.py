@@ -1,5 +1,3 @@
-from typing import List
-
 from pydantic import BaseModel, ConfigDict, Field, computed_field
 
 

@@ -7,12 +7,7 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
 
-from features.like.data.models.like import Like
-from features.media.data.models.media import Media
-from features.tweet.data.models.tweet import Tweet
-from features.user.data.models.user import User, follows
-
-from core.models.postgres.models import Base
+from my_twitter.core.models.postgres.models import Base
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -21,7 +16,8 @@ config = context.config
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
 if config.config_file_name is not None:
-    fileConfig(config.config_file_name)
+    # Не отключаем уже существующие логгеры приложения/uvicorn
+    fileConfig(config.config_file_name, disable_existing_loggers=False)
 
 # add your model's MetaData object here
 # for 'autogenerate' support

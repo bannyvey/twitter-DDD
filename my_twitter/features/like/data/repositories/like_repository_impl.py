@@ -1,9 +1,9 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from features.like.data.models.like import Like
-from features.like.domain.entities.like_entity import LikeEntity
-from features.like.domain.repositories.like_repository import LikeRepository
-from features.user.domain.entities.user_entity import UserEntity
+from my_twitter.features.like  import Like
+from my_twitter.features.like import LikeEntity
+from my_twitter.features.like.domain.repositories.like_repository import LikeRepository
+from my_twitter.features.user.domain.entities.user_entity import UserEntity
 
 
 class LikeRepositoryImpl(LikeRepository):

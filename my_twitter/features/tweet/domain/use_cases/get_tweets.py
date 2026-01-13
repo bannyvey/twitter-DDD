@@ -1,10 +1,10 @@
 from typing import List, Sequence
 
-from core.use_case.use_case import BaseUseCase
+from my_twitter.core.use_case.use_case import BaseUseCase
 
-from features.tweet.domain.entities.tweet_query_model import TweetReadModel
-from features.tweet.domain.services.tweet_query_service import TweetQueryService
-from features.user.domain.entities.user_entity import UserEntity
+from my_twitter.features.tweet.domain.entities.tweet_query_model import TweetReadModel
+from my_twitter.features.tweet.domain.services.tweet_query_service import TweetQueryService
+from my_twitter.features.user.domain.entities.user_entity import UserEntity
 
 
 class GetTweetsUseCase(BaseUseCase[UserEntity, Sequence[TweetReadModel]]):

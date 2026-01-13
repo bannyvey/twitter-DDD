@@ -1,17 +1,8 @@
-from abc import ABC
-from typing import List
-
-from sqlalchemy import select, desc
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.orm import selectinload
 
-from core.error.tweet_exception import TweetNotFound, PermissionDenied
-from features.like.data.models.like import Like
-from features.tweet.data.models.tweet import Tweet
-from features.tweet.domain.entities.tweet_entity import TweetEntity
-from features.tweet.domain.repositories.tweet_repository import TweetRepository
-from features.user.data.models.user import User
-from features.user.domain.entities.user_entity import UserEntity
+from my_twitter.features.tweet import Tweet
+from my_twitter.features.tweet.domain.entities.tweet_entity import TweetEntity
+from my_twitter.features.tweet.domain.repositories.tweet_repository import TweetRepository
 
 
 class TweetRepositoryImpl(TweetRepository):

@@ -3,14 +3,12 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from core.database.postgres.database import get_db
-from core.error.base_exception import AuthException
-from features.media.data.repositories.media_repository_impl import MediaRepositoryImpl
-from features.media.data.repositories.media_unit_of_work_impl import MediaUnitOfWorkImpl
-from features.media.domain.repositories.media_repository import MediaRepository
-from features.media.domain.repositories.media_unit_of_work import MediaUnitOfWork
-from features.media.domain.use_cases.create_media import CreateMediaUseCase, CreateMediaUseCaseImpl
-from features.user.data.models.user import User
+from my_twitter.core.database.postgres.database import get_db
+from my_twitter.features.media.data.repositories.media_repository_impl import MediaRepositoryImpl
+from my_twitter.features.media.data.repositories.media_unit_of_work_impl import MediaUnitOfWorkImpl
+from my_twitter.features.media.domain.repositories.media_repository import MediaRepository
+from my_twitter.features.media.domain.repositories.media_unit_of_work import MediaUnitOfWork
+from my_twitter.features.media.domain.use_cases.create_media import CreateMediaUseCase, CreateMediaUseCaseImpl
 
 
 def get_media_repository(

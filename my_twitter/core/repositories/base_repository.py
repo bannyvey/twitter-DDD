@@ -5,7 +5,7 @@ T = TypeVar('T')
 R = TypeVar('R')
 
 
-class BaseTweetRepository(ABC, Generic[T]):
+class BaseRepository(ABC, Generic[T]):
     @abstractmethod
     async def create(self, entity: T) -> T:
         raise NotImplementedError

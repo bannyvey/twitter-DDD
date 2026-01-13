@@ -1,12 +1,12 @@
 from abc import abstractmethod
 
-from core.repositories.base_repository import BaseTweetRepository
+from my_twitter.core.repositories.base_repository import BaseRepository
 
-from features.tweet.domain.entities.tweet_entity import TweetEntity
-from features.user.domain.entities.user_entity import UserEntity
+from my_twitter.features.tweet.domain.entities.tweet_entity import TweetEntity
+from my_twitter.features.user.domain.entities.user_entity import UserEntity
 
 
-class TweetRepository(BaseTweetRepository[TweetEntity]):
+class TweetRepository(BaseRepository[TweetEntity]):
     @abstractmethod
     async def find_by_tweet_id(self, tweet_id: int) -> TweetEntity:
         raise NotImplementedError

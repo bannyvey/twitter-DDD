@@ -4,9 +4,9 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from features.user.data.models.user import User
-from features.user.domain.entities.user_query_model import UserReadModel
-from features.user.domain.services.user_query_service import UserQueryService
+from my_twitter.features.user import User
+from my_twitter.features.user.domain.entities.user_query_model import UserReadModel
+from my_twitter.features.user.domain.services.user_query_service import UserQueryService
 
 
 class UserQueryServiceImpl(UserQueryService):

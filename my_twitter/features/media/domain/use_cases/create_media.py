@@ -3,11 +3,11 @@ import os
 import aiofiles
 from fastapi import UploadFile
 
-from config import PATH_MEDIA
-from core.error.media_exception import MediaNotFound
-from core.use_case.use_case import BaseUseCase
-from features.media.domain.entities.media_entity import MediaEntity
-from features.media.domain.repositories.media_unit_of_work import MediaUnitOfWork
+from my_twitter.config import PATH_MEDIA
+from my_twitter.core.error.media_exception import MediaNotFound
+from my_twitter.core.use_case.use_case import BaseUseCase
+from my_twitter.features.media.domain.entities.media_entity import MediaEntity
+from my_twitter.features.media.domain.repositories.media_unit_of_work import MediaUnitOfWork
 
 
 class CreateMediaUseCase(BaseUseCase[MediaEntity, None]):

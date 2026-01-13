@@ -1,11 +1,11 @@
 from datetime import datetime
 
-from core.use_case.use_case import BaseUseCase
-from features.media.domain.repositories.media_repository import MediaRepository
-from features.tweet.domain.entities.tweet_command_model import TweetCreateModel
-from features.tweet.domain.entities.tweet_entity import TweetEntity
-from features.tweet.domain.repositories.tweet_unit_of_work import TweetUnitOfWork
-from features.user.domain.entities.user_entity import UserEntity
+from my_twitter.core.use_case.use_case import BaseUseCase
+from my_twitter.features.media.domain.repositories.media_repository import MediaRepository
+from my_twitter.features.tweet.domain.entities.tweet_command_model import TweetCreateModel
+from my_twitter.features.tweet.domain.entities.tweet_entity import TweetEntity
+from my_twitter.features.tweet.domain.repositories.tweet_unit_of_work import TweetUnitOfWork
+from my_twitter.features.user.domain.entities.user_entity import UserEntity
 
 
 class CreateTweetUseCase(BaseUseCase[TweetCreateModel, UserEntity]):

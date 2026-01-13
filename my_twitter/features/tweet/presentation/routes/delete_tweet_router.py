@@ -1,13 +1,13 @@
-from fastapi import Path, Depends, HTTPException, status
+from fastapi import Path, Depends, HTTPException, status, APIRouter
 
-from dependencies import get_current_user
-from features.tweet.dependencies import get_delete_tweet_use_case
-from features.tweet.domain.use_cases.delete_tweet import DeleteTweetUseCase
-from features.tweet.presentation.routes import router
-from core.error.tweet_exception import TweetNotFound
-from core.error.base_exception import AuthException
-from features.user.domain.entities.user_entity import UserEntity
+from my_twitter.dependencies import get_current_user
+from my_twitter.features.tweet.dependencies import get_delete_tweet_use_case
+from my_twitter.features.tweet.domain.use_cases.delete_tweet import DeleteTweetUseCase
 
+from my_twitter.features.user.domain.entities.user_entity import UserEntity
+
+
+router = APIRouter()
 
 @router.delete('/{id}')
 async def delete_tweet_router(

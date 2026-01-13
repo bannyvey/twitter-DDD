@@ -2,9 +2,9 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from features.user.data.models.user import User
-from features.user.domain.entities.user_entity import UserEntity
-from features.user.domain.repositories.user_repository import UserRepository
+from my_twitter.features.user import User
+from my_twitter.features.user.domain.entities.user_entity import UserEntity
+from my_twitter.features.user.domain.repositories.user_repository import UserRepository
 
 
 class UserRepositoryImpl(UserRepository):

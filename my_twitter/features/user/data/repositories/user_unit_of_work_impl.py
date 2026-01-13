@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from features.user.domain.repositories.user_repository import UserRepository
-from features.user.domain.repositories.user_unit_of_work import UserUnitOfWork
+from my_twitter.features.user.domain.repositories.user_repository import UserRepository
+from my_twitter.features.user.domain.repositories.user_unit_of_work import UserUnitOfWork
 
 
 class UserUnitOfWorkImpl(UserUnitOfWork):

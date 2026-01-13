@@ -1,11 +1,13 @@
-from fastapi import Depends, Path
+from fastapi import Depends, Path, APIRouter
 
-from dependencies import get_current_user
-from features.like.dependencies import get_delete_like_use_case
-from features.like.domain.use_cases.delete_like import DeleteLikeUseCase
-from features.like.presentation import router
-from features.user.domain.entities.user_entity import UserEntity
+from my_twitter.dependencies import get_current_user
+from my_twitter.features.like.dependencies import get_delete_like_use_case
+from my_twitter.features.like.domain.use_cases.delete_like import DeleteLikeUseCase
+# from my_twitter.features.like.presentation.routes import router
+# from my_twitter.features.like.presentation import router
+from my_twitter.features.user.domain.entities.user_entity import UserEntity
 
+router = APIRouter()
 
 @router.delete("/{id}/likes")
 async def delete_like(

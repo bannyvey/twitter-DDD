@@ -1,4 +1,4 @@
-from core.error.base_exception import BaseError
+from my_twitter.core.error.base_exception import BaseError
 
 
 class LikeNotFound(BaseError):

@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from features.tweet.domain.repositories.tweet_repository import TweetRepository
-from features.tweet.domain.repositories.tweet_unit_of_work import TweetUnitOfWork
+from my_twitter.features.tweet.domain.repositories.tweet_repository import TweetRepository
+from my_twitter.features.tweet.domain.repositories.tweet_unit_of_work import TweetUnitOfWork
 
 
 class TweetUnitOfWorkImpl(TweetUnitOfWork):
@@ -15,3 +15,5 @@ class TweetUnitOfWorkImpl(TweetUnitOfWork):
 
     async def rollback(self):
         await self.session.rollback()
+
+

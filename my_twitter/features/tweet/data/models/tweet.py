@@ -4,25 +4,24 @@ from typing import List, TYPE_CHECKING
 from sqlalchemy import ForeignKey, String, Integer
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from core.models.postgres.models import Base
-from features.tweet.domain.entities.tweet_entity import TweetEntity
-from features.tweet.domain.entities.tweet_query_model import AuthorReadModel, MediaReadModel, LikeReadModel, \
+from my_twitter.core.models.postgres.models import Base
+from my_twitter.features.tweet.domain.entities.tweet_entity import TweetEntity
+from my_twitter.features.tweet.domain.entities.tweet_query_model import AuthorReadModel, MediaReadModel, LikeReadModel, \
     TweetReadModel
 
 if TYPE_CHECKING:
-    from features.like.data.models.like import Like
-    from features.media.data.models.media import Media
-    from features.user.data.models.user import User
+    from my_twitter.features.like import Like
+    from my_twitter.features.media import Media
+    from my_twitter.features.user import User
 
 
 class Tweet(Base):
     __tablename__ = 'table_tweet'
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
     message: Mapped[str] = mapped_column(String(255))
     created_at: Mapped[datetime] = mapped_column(default=lambda: datetime.now())
     user_id: Mapped[int] = mapped_column(ForeignKey("user.id"))
 
-    author: Mapped['User'] = relationship("User", back_populates="tweets")
+    author: Mapped["User"] = relationship("User", back_populates="tweets")
 
     likes: Mapped[List["Like"]] = relationship(
         'Like',

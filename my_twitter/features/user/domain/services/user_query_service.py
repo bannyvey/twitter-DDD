@@ -1,7 +1,7 @@
 from abc import abstractmethod
 
-from core.services.base_query_service import BaseQueryService
-from features.user.domain.entities.user_query_model import UserReadModel
+from my_twitter.core.services.base_query_service import BaseQueryService
+from my_twitter.features.user.domain.entities.user_query_model import UserReadModel
 
 
 class UserQueryService(BaseQueryService[UserReadModel]):

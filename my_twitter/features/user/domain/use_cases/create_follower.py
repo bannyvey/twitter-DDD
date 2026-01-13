@@ -1,7 +1,7 @@
-from core.error.user_exception import UserNotFound
-from core.use_case.use_case import BaseUseCase
-from features.user.domain.entities.user_entity import UserEntity
-from features.user.domain.repositories.user_unit_of_work import UserUnitOfWork
+from my_twitter.core.error.user_exception import UserNotFound
+from my_twitter.core.use_case.use_case import BaseUseCase
+from my_twitter.features.user.domain.entities.user_entity import UserEntity
+from my_twitter.features.user.domain.repositories.user_unit_of_work import UserUnitOfWork
 
 
 class CreateFollowerUseCase(BaseUseCase[UserEntity, int]):

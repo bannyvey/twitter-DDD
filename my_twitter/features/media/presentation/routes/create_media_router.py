@@ -1,11 +1,11 @@
-from fastapi import UploadFile, Depends
+from fastapi import UploadFile, Depends, APIRouter
 
-from dependencies import get_current_user
-from features.media.dependencies import get_create_media_use_case
-from features.media.domain.use_cases.create_media import CreateMediaUseCase
-from features.media.presentation.routes import router
-from features.user.domain.entities.user_entity import UserEntity
+from my_twitter.dependencies import get_current_user
+from my_twitter.features.media.dependencies import get_create_media_use_case
+from my_twitter.features.media.domain.use_cases.create_media import CreateMediaUseCase
+from my_twitter.features.user.domain.entities.user_entity import UserEntity
 
+router = APIRouter()
 
 @router.post("/")
 async def create_media(

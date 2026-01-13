@@ -1,7 +1,7 @@
-from core.error.user_exception import UserNotFound
-from core.use_case.use_case import BaseUseCase
-from features.user.domain.entities.user_query_model import UserReadModel
-from features.user.domain.services.user_query_service import UserQueryService
+from my_twitter.core.error.user_exception import UserNotFound
+from my_twitter.core.use_case.use_case import BaseUseCase
+from my_twitter.features.user.domain.entities.user_query_model import UserReadModel
+from my_twitter.features.user.domain.services.user_query_service import UserQueryService
 
 
 class FindByIdUserUseCase(BaseUseCase[int, UserReadModel]):

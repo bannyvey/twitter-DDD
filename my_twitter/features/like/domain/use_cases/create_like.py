@@ -1,9 +1,8 @@
-from core.use_case.use_case import BaseUseCase
-from features.like.domain.entities.like_entity import LikeEntity
-from features.like.domain.repositories.like_repository import LikeRepository
-from features.like.domain.repositories.like_unit_of_work import LikeUnitOfWork
-from features.user.domain.entities.user_entity import UserEntity
-
+from my_twitter.core.use_case.use_case import BaseUseCase
+from my_twitter.features.like.data.repositories.like_unit_of_work_impl import LikeUnitOfWorkImpl
+from my_twitter.features.like.domain.entities.like_entity import LikeEntity
+from my_twitter.features.like.domain.repositories.like_unit_of_work import LikeUnitOfWork
+from my_twitter.features.user.domain.entities.user_entity import UserEntity
 
 class CreateLikeUseCase(BaseUseCase[int, LikeEntity]):
     unit_of_work: LikeUnitOfWork
@@ -14,11 +13,12 @@ class CreateLikeUseCase(BaseUseCase[int, LikeEntity]):
 
 class CreateLikeUseCaseImpl(CreateLikeUseCase):
 
-    def __init__(self, unit_of_work: LikeUnitOfWork):
+    def __init__(self, unit_of_work: LikeUnitOfWorkImpl):
         self.unit_of_work = unit_of_work
 
     async def __call__(self, id_: int | None = None, current_user: UserEntity | None = None) -> LikeEntity:
         like = LikeEntity(
+            id=None,
             user_id=current_user.id,
             tweet_id=id_
         )

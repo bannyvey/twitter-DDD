@@ -3,21 +3,20 @@ from typing import List, TYPE_CHECKING
 from sqlalchemy import String, Table, Column, ForeignKey, Integer
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from core.models.postgres.models import Base
-from features.user.domain.entities.user_entity import UserEntity
-from features.user.domain.entities.user_query_model import UserReadModel, FollowingReadModel, FollowerReadModel, \
+from my_twitter.core.models.postgres.models import Base
+from my_twitter.features.user.data.models.follows import follows
+from my_twitter.features.user.domain.entities.user_entity import UserEntity
+from my_twitter.features.user.domain.entities.user_query_model import (
+    UserReadModel,
+    FollowingReadModel,
+    FollowerReadModel,
     UserScheme
+)
 
 if TYPE_CHECKING:
-    from features.like.data.models.like import Like
-    from features.tweet.data.models.tweet import Tweet
+    from my_twitter.features.like import Like
+    from my_twitter.features.tweet import Tweet
 
-follows = Table(
-    "follows",
-    Base.metadata,
-    Column("follower_id", ForeignKey("user.id"), primary_key=True),
-    Column("following_id", ForeignKey("user.id"), primary_key=True),
-)
 
 
 class User(Base):
@@ -26,19 +25,19 @@ class User(Base):
     Содержит связи с твитами, лайками, подписчиками и подписками.
     """
     __tablename__ = "user"
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    email: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
+    hashed_password: Mapped[str] = mapped_column(String(255), nullable=False)
     nickname: Mapped[str] = mapped_column(String(30), unique=True)
-    api_key: Mapped[str] = mapped_column(String(30), nullable=False, unique=True)
     first_name: Mapped[str] = mapped_column(String(30), nullable=False)
     last_name: Mapped[str] = mapped_column(String(30), nullable=False)
 
-    likes: Mapped[List['Like']] = relationship(
+    likes: Mapped[List["Like"]] = relationship(
         "Like",
         back_populates="user",
         cascade="save-update, merge, delete, delete-orphan",
     )
 
-    tweets: Mapped[List['Tweet']] = relationship(
+    tweets: Mapped[List["Tweet"]] = relationship(
         "Tweet",
         back_populates="author",
         cascade="save-update, merge, delete, delete-orphan"
@@ -64,7 +63,7 @@ class User(Base):
         return UserEntity(
             id_=self.id,
             nickname=self.nickname,
-            api_key=self.api_key,
+            email=self.email,
             first_name=self.first_name,
             last_name=self.last_name,
         )

@@ -1,7 +1,7 @@
-from core.error.tweet_exception import TweetNotFound, PermissionDenied
-from core.use_case.use_case import BaseUseCase
-from features.tweet.domain.repositories.tweet_unit_of_work import TweetUnitOfWork
-from features.user.domain.entities.user_entity import UserEntity
+from my_twitter.core.error.tweet_exception import TweetNotFound, PermissionDenied
+from my_twitter.core.use_case.use_case import BaseUseCase
+from my_twitter.features.tweet.domain.repositories.tweet_unit_of_work import TweetUnitOfWork
+from my_twitter.features.user.domain.entities.user_entity import UserEntity
 
 
 class DeleteTweetUseCase(BaseUseCase[int, UserEntity]):

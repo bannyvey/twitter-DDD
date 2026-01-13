@@ -1,11 +1,11 @@
 from abc import abstractmethod
 
-from core.repositories.base_repository import BaseTweetRepository
-from features.user.data.models.user import User
-from features.user.domain.entities.user_entity import UserEntity
+from my_twitter.core.repositories.base_repository import BaseRepository
+from my_twitter.features.user import User
+from my_twitter.features.user.domain.entities.user_entity import UserEntity
 
 
-class UserRepository(BaseTweetRepository[User]):
+class UserRepository(BaseRepository[User]):
     @abstractmethod
     async def create_follow(self, user: UserEntity, id_):
         raise NotImplementedError

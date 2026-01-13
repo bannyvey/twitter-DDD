@@ -1,11 +1,11 @@
-from fastapi import Depends
+from fastapi import Depends, APIRouter
 
-from dependencies import get_current_user
-from features.user.dependencies import get_delete_following_use_case
-from features.user.domain.entities.user_entity import UserEntity
-from features.user.domain.use_cases.delete_follower import DeleteFollowingUseCase
-from features.user.presentation.routes import router
+from my_twitter.dependencies import get_current_user
+from my_twitter.features.user.dependencies import get_delete_following_use_case
+from my_twitter.features.user.domain.entities.user_entity import UserEntity
+from my_twitter.features.user.domain.use_cases.delete_follower import DeleteFollowingUseCase
 
+router = APIRouter()
 
 @router.delete("/{id}/follow")
 async def delete_following(
